@@ -16,37 +16,58 @@ Design and implement a simple Layer 2 Ethernet LAN in Cisco Packet Tracer by con
 
 - <b>Windows 10</b> (21H2)
 
-<h2>Program walk-through:</h2>
+<h2>Step 1: Workspace Setup</h2>
+
+<p align="center">
+Launch the utility: <br/>
+<img src="https://i.imgur.com/dpZI70X.png" height="80%" width="80%" alt="Workspace Setup"/>
+<br />
+<br />
+ 
+<h2>Step 2: Cabling Connections</h2>
+
+<p align="center">
+Launch the utility: <br/>
+<img src="https://i.imgur.com/LxyTAtZ.png" height="80%" width="80%" alt="Cabling Connections"/>
+<br />
+<br />
+
+<h2>Step 3: IP Config</h2>
+
+<p align="center">
+Launch the utility: <br/>
+<img src="https://i.imgur.com/rf0MFLF.png" height="80%" width="80%" alt="IP Config"/>
+ <br />
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+
+  <img src="https://i.imgur.com/NS5gA1w.jpeg" height="45%" width="45%" alt="PC1 IP Configuration"/>
+
+  <img src="https://i.imgur.com/L9OYMUF.jpeg" height="45%" width="45%" alt="PC2 IP Configuration"/>
+
+</div>
+
+<br />
+<br />
+<br />
+<br />
+ 
+<h2>Step 4: Ping Testing</h2>
+
+<p align="center">
+Launch the utility: <br/>
+<img src="https://i.imgur.com/9SqRRgS.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<br />
+<br />
+
+<h2>Step #:Step Name</h2>
 
 <p align="center">
 Launch the utility: <br/>
 <img src="https://i.imgur.com/thJl0Mq.jpeg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Enter the number of passes: <br/>
-<img src="https://i.imgur.com/nCIbXbg.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-
+ 
 <!--
  ```diff
 - text in red
