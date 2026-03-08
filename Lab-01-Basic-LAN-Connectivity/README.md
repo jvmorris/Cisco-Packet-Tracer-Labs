@@ -1,4 +1,4 @@
-<h1>Connecting Mutliple PC to Switch</h1>
+<h1>Lab #1: Connecting Mutliple PC to Switch</h1>
 
 
 
