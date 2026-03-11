@@ -20,29 +20,51 @@ Design and implement a simple Layer 2 Ethernet LAN in Cisco Packet Tracer by con
 <h3>Step 1: Workspace Setup</h3>
 
 
-Create a Basic Topology with a single Switch and 2 end hosts (PC1 and PC2) from the <strong>Devices Panel</strong>  <br/>
+Create a Basic Topology with a Switch, Router and 3 end hosts (PC0, PC1 and PC2) from the <strong>Devices Panel</strong>  <br/>
 
 <strong>Devices Used:</strong><br/>
 <ul>
-  <li>Switch: 2960</li>
+  <li>Switch: 3560-24PS</li>
+  <li>Router: 2901</li>
   <li>End Devices: PC </li>
 </ul
 <p align="center">
-<img src="https://i.imgur.com/dpZI70X.png" height="80%" width="80%" alt="Workspace Setup"/>
+<img src="https://i.imgur.com/lRv6b5q.png" height="80%" width="80%" alt="Workspace Setup"/>
 <br />
 <br />
  
 <h3>Step 2: Cabling Connections</h3>
 
-Connect each PC to the switch by navigating to <strong>Connections</strong> and using copper straight‑through cables, then wait until all links turn green to confirm a good connection.<br/>
+Using the <strong>Connections</strong> tab, cable all end devices to the access-layer switch, then connect the switch up to the router to complete the topology.
 
 <strong>Ports Used:</strong><br/>
 <ul>
   <li>PC Port: FastEthernet</li>
   <li>Switch Port: First available FastEthernet</li>
 </ul>
+
+After clicking a PC with the copper straight-through wire, select <strong>FastEthernet0</strong> when prompted, then repeat for the switch's first available FastEthernet port.<br/>
+
 <p align="center">
-<img src="https://i.imgur.com/LxyTAtZ.png" height="80%" width="80%" alt="Cabling Connections"/>
+<img src="https://i.imgur.com/EVPMOjT.png" height="80%" width="80%" alt="Cabling Connections"/>
+<br/>
+<br/>
+
+The connections will show orange on the switch side initially and wait a moment for the ports to finish initializing before they turn green.</br>
+<br/>
+
+<p align="center">
+<img src="https://i.imgur.com/ZMYzjr4.png" height="80%" width="80%" alt="Cabling Connections"/>
+<br/>
+<br/>
+
+Using a copper straight-through cable, connect a GigabitEthernet port on the router to a GigabitEthernet port on the switch to establish the link.</br>
+<br/>
+
+<p align="center">
+<img src="https://i.imgur.com/BPIbuEK.png" height="80%" width="80%" alt="Cabling Connections"/>
+
+
 <br />
 <br />
 
@@ -84,7 +106,7 @@ Use one PC to ping the other's IP Address using the Command Prompt within the De
 
 <h3>Conclusion and Key Takeaways</h3>
 
-This lab successfully built a basic Ethernet LAN in Cisco Packet Tracer by connecting two PCs to a switch, assigning IP addresses, and validating connectivity with ICMP ping. By setting up the physical topology, configuring the correct cabling, and applying consistent IP settings on both hosts, the environment now demonstrates fundamental Layer 2 and Layer 3 communication. This provides a solid foundation for future labs involving VLANs, inter‑VLAN routing, and more advanced switch and router configurations.
+This lab successfully modeled a small Cisco LAN consisting of three PCs, an access‑layer switch, and a router providing Layer 3 IP connectivity. By designing an IP addressing plan, configuring the router’s LAN interface, and assigning correct IP settings and gateways on each PC, the network now supports reliable communication between all hosts and their default gateway. This environment serves as a practical foundation for future labs involving VLANs, inter‑VLAN routing, and more advanced switch and router features.
 
 <!--
  ```diff
