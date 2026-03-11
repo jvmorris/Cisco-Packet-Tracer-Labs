@@ -27,14 +27,12 @@ VLAN segmentation, and security implementation.
 
 <h3>Lab 01: Connect Multiple PC to Switch</h3>
 
-<b>Objective:</b>  
-Design and implement a simple Layer 2 Ethernet LAN in Cisco Packet Tracer by connecting two PCs to a switch, assigning appropriate IP addresses, and verifying end-to-end connectivity using ping.
-
+<b>Objective:</b> Design and implement a simple Layer 2 Ethernet LAN in Cisco Packet Tracer by connecting two PCs to a switch, assigning appropriate IP addresses, and verifying end-to-end connectivity using ping. 
 <br />
 
-<h3>Lab 02: </h3>
+<h3>Lab 02: Building a Small LAN with a Router and Switch </h3>
 
-
+<b>Objective: </b>Design and implement a routed LAN in Cisco Packet Tracer by connecting three PCs to an access‑layer switch, uplinking the switch to a router, assigning IP addresses and default gateways, and verifying connectivity between hosts and the router with ping. 
 <br />
 
 <h3>Lab 03: </h3>
