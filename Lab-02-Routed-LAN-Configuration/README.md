@@ -3,7 +3,7 @@
 
 
 <h2>Description</h2>
-Design and implement a simple Layer 2 Ethernet LAN in Cisco Packet Tracer by connecting two PCs to a switch, assigning appropriate IP addresses, and verifying end-to-end connectivity using ping.
+Design and implement a routed LAN in Cisco Packet Tracer by connecting three PCs to an access‑layer switch, uplinking the switch to a router, assigning IP addresses and default gateways, and verifying connectivity between hosts and the router with ping.
 <br />
 
 
@@ -27,7 +27,7 @@ Create a Basic Topology with a Switch, Router and 3 end hosts (PC0, PC1 and PC2)
   <li>Switch: 3560-24PS</li>
   <li>Router: 2901</li>
   <li>End Devices: PC </li>
-</ul
+</ul>
 <p align="center">
 <img src="https://i.imgur.com/lRv6b5q.png" height="80%" width="80%" alt="Workspace Setup"/>
 <br />
@@ -68,39 +68,63 @@ Using a copper straight-through cable, connect a GigabitEthernet port on the rou
 <br />
 <br />
 
-<h3>Step 3: IP Config</h3>
+<h3>Step 3: Router Interface Configuration</h3>
 
-Assign IP Addresses to both PCs using the IP Configuration within the Desktop Interface for each end device <br/>
+After cabling, the connection between the router and switch will show as <strong>red</strong>, meaning the interface is administratively down. Click on the <strong>Router</strong>, open the <strong>CLI</strong> tab, and configure the interface to bring the link up and set it as the LAN's default gateway.<br/>
+
+
+<strong>From the router CLI:</strong><br/>
+<ul>
+  <li>Enable the interface connected to the switch</li>
+  <li>Assign the LAN IP address and subnet mask
+    <ul>
+    <li>IP Address: 192.168.21.1 | Subnet Mask: 255.255.255.0</li>
+    </ul>
+  </li>
+  <li>Ensure the interface is up/up</li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/MWRXN18.png" height="80%" width="80%" alt="IP Config"/>
+ <br />
+
+<br />
+<br />
+
+  
+<h3>Step 4:PC IP Configuration</h3>
+
+Configure each PC with its assigned IP settings. <br/>
 
 <strong>IP Address Assigned:</strong><br/>
 <ul>
-  <li>PC 1: 192.168.0.1</li>
-  <li>PC 2: 192.168.0.2</li>
+  <li>PC 0: 192.168.21.11</li>
+  <li>PC 1: 192.168.21.12</li>
+  <li>PC 2: 192.168.21.13</li>
 </ul>
 
-<strong>Subnet Mask Assigned:</strong> 255.0.0.0<br/>
+<strong>Subnet Mask Assigned:</strong> 255.255.255.0<br/>
+<strong>Default Gateway Assigned:</strong> 192.168.21.1<br/>
+
 <p align="center">
-<img src="https://i.imgur.com/rf0MFLF.png" height="80%" width="80%" alt="IP Config"/>
- <br />
-
-<div style="display: flex; justify-content: center; gap: 20px;">
-
-  <img src="https://i.imgur.com/NS5gA1w.jpeg" height="45%" width="45%" alt="PC1 IP Configuration"/>
-
-  <img src="https://i.imgur.com/L9OYMUF.jpeg" height="45%" width="45%" alt="PC2 IP Configuration"/>
-
-</div>
-
+<img src="https://i.imgur.com/3v68Uwb.jpeg" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
-<br />
-<br />
- 
-<h3>Step 4: Ping Testing</h3>
 
-Use one PC to ping the other's IP Address using the Command Prompt within the Desktop Interface for each PC <br/>
+<h3>Step 5: Ping Testing</h3>
+
+Test end‑to‑end connectivity between PCs and to the router, using the <strong>Command Prompt</strong> within the Desktop Interface for each PC <br/>
+
+
+<strong>Verification Steps:</strong><br/>
+<ul>
+  <li>From each PC, ping the router’s LAN IP: < strong>192.168.21.1</strong></li>
+  <li>Ping between PCs</li>
+  <li>Confirm all hosts receive successful replies</li>
+</ul>
+
 <p align="center">
-<img src="https://i.imgur.com/9SqRRgS.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/BlD1gfC.jpeg" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
 
