@@ -51,12 +51,13 @@ Wait until all PC-Switch links turn green to confirm a good physical connection.
 <br/>
 
 
-<h3>Step 3: Creating VLANs on Both Switches</h3>
+<h3>Step 3: Configuring VLANs on Both Switches</h3>
 
-Create two static VLANs on each switch to logically segment the hosts<br/>
+Open the CLI for each switch and configure the VLANs and access ports.<br/>
 
 <strong>VLAN Configuration:</strong><br/>
 <ul>
+  <li>Create VLAN 10 `code here`
   <li>VLAN 10 – VLAN for PCs 1–2 on each switch</li>
   <li>VLAN 20 – VLAN for PCs 3–4 on each switch</li>
 </ul>
