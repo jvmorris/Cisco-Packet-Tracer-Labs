@@ -57,55 +57,61 @@ Open the CLI for each switch and configure the VLANs and access ports.<br/>
 
 <strong>VLAN Configuration:</strong><br/>
 <ul>
-  <li>Create VLAN 10 `code here`
-  <li>VLAN 10 – VLAN for PCs 1–2 on each switch</li>
-  <li>VLAN 20 – VLAN for PCs 3–4 on each switch</li>
+  <li>Create VLAN 10 and VLAN 20
+  <li>Assign Access Ports to VLANs
+     <ul>
+        <li>Fa0/1-2: access ports to VLAN 10/li>
+        <li>Fa0/3-4: access ports to VLAN 20/li>
+        <li>Optionally shut down unused ports Fa0/5-23>
+    </ul>
+  </li>
+  <li>Configure the 802.1Q Trunk</li>
 </ul>
 
 
-<strong>From each switch CLI:</strong><br/>
-<ul>
-  <li>Define VLAN 10 and VLAN 20 and give them readable names</li>
-  <li>Ensure the interface is up/up</li>
-</ul>
 
-<p align="center">
-<img src="https://i.imgur.com/MWRXN18.png" height="80%" width="80%" alt="IP Config"/>
- <br />
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+
+  <img src="https://i.imgur.com/NS5gA1w.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+
+  <img src="https://i.imgur.com/L9OYMUF.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+
+</div>
 
 <br />
 <br />
 
   
-<h3>Step 4: Assigning Access Ports to VLANs</h3>
+<h3>Step 4: PC IP Configuration</h3>
 
-Assign each PC-facing switch port as an access port in the correct VLAN. <br/>
+Assign IP addresses so all eight PCs share the same IPv4 subnet while remaining logically separated by VLANs.
 
 <strong>IP Address Assigned:</strong><br/>
 <ul>
   <li>PC 0: 192.168.21.11</li>
   <li>PC 1: 192.168.21.12</li>
   <li>PC 2: 192.168.21.13</li>
+  <li>PC 3: 192.168.21.14</li>
+  <li>PC 4: 192.168.21.15</li>
+  <li>PC 5: 192.168.21.16</li>
+  <li>PC 6: 192.168.21.17</li>
+  <li>PC 7: 192.168.21.18</li>
 </ul>
 
 <strong>Subnet Mask Assigned:</strong> 255.255.255.0<br/>
-<strong>Default Gateway Assigned:</strong> 192.168.21.1<br/>
 
 <p align="center">
 <img src="https://i.imgur.com/3v68Uwb.jpeg" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
 
-<h3>Step 5: Ping Testing</h3>
+<h3>Step 5: Connect the Switches Together</h3>
 
-Test end‑to‑end connectivity between PCs and to the router, using the <strong>Command Prompt</strong> within the Desktop Interface for each PC <br/>
-
-
-<strong>Verification Steps:</strong><br/>
 <ul>
-  <li>From each PC, ping the router’s LAN IP: < strong>192.168.21.1</strong></li>
-  <li>Ping between PCs</li>
-  <li>Confirm all hosts receive successful replies</li>
+  <li>From the <strong>Connections</strong> toolbar, select a copper straight-through cable</li>
+  <li>Port Used: Fa0/24</li>
+  <li>Wait until the inter-switch link turns green on both ends to confirm a good physical connection</li>
 </ul>
 
 <p align="center">
@@ -113,16 +119,13 @@ Test end‑to‑end connectivity between PCs and to the router, using the <stron
 <br />
 <br />
 
-<h3>Step 6:IP Addressing for a Single Subnet</h3>
+<h3>Step 6:Add VLAN Bubbles and Labels</h3>
 
-Test end‑to‑end connectivity between PCs and to the router, using the <strong>Command Prompt</strong> within the Desktop Interface for each PC <br/>
+Visually document the VLAns in the topology.
 
-
-<strong>Verification Steps:</strong><br/>
 <ul>
-  <li>From each PC, ping the router’s LAN IP: < strong>192.168.21.1</strong></li>
-  <li>Ping between PCs</li>
-  <li>Confirm all hosts receive successful replies</li>
+  <li>Use the <strong>Draw Ellipse</strong> in the drawing tools to create shaded "bubbles" to visualize the VLANS on each switch.</li>
+  <li>Use the <strong> Place Note</strong> to add text labels: "VLAN 10" and "VLAN 20" inside each bubble.
 </ul>
 
 <p align="center">
@@ -132,14 +135,27 @@ Test end‑to‑end connectivity between PCs and to the router, using the <stron
 
 <h3>Step 7: Connectivity Testing Across VLANs and Switches</h3>
 
-Test end‑to‑end connectivity between PCs and to the router, using the <strong>Command Prompt</strong> within the Desktop Interface for each PC <br/>
+Verify correct behavior for same-VLAN and different-VLAN traffic.<br/>
 
 
-<strong>Verification Steps:</strong><br/>
+<strong>Successful pings:</strong><br/>
 <ul>
   <li>From each PC, ping the router’s LAN IP: < strong>192.168.21.1</strong></li>
   <li>Ping between PCs</li>
   <li>Confirm all hosts receive successful replies</li>
+</ul>
+
+<div style="display: flex; justify-content: center; gap: 20px;">
+
+  <img src="https://i.imgur.com/NS5gA1w.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+
+  <img src="https://i.imgur.com/L9OYMUF.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+
+</div>
+
+<strong>Unsuccessful pings:</strong><br/>
+<ul>
+  <li>One VLAN 10 PC -> one VLAN 20 PC (no inter-VLAN routing confirmed)
 </ul>
 
 <p align="center">
