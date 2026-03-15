@@ -60,9 +60,9 @@ Open the CLI for each switch and configure the VLANs and access ports.<br/>
   <li>Create VLAN 10 and VLAN 20
   <li>Assign Access Ports to VLANs
      <ul>
-        <li>Fa0/1-2: access ports to VLAN 10/li>
-        <li>Fa0/3-4: access ports to VLAN 20/li>
-        <li>Optionally shut down unused ports Fa0/5-23>
+        <li>Fa0/1-2: access ports to VLAN 10</li>
+        <li>Fa0/3-4: access ports to VLAN 20</li>
+        <li>Optionally shut down unused ports Fa0/5-23</li>
     </ul>
   </li>
   <li>Configure the 802.1Q Trunk</li>
@@ -140,9 +140,9 @@ Verify correct behavior for same-VLAN and different-VLAN traffic.<br/>
 
 <strong>Successful pings:</strong><br/>
 <ul>
-  <li>From each PC, ping the router’s LAN IP: < strong>192.168.21.1</strong></li>
-  <li>Ping between PCs</li>
-  <li>Confirm all hosts receive successful replies</li>
+  <li>PC<->PC on Switch A</li>
+  <li>PC<->PC on Switch B</li>
+  <li>One VLAN 10 PC <-> one VLAN 10 PC (across trunk)</li>
 </ul>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
@@ -155,11 +155,13 @@ Verify correct behavior for same-VLAN and different-VLAN traffic.<br/>
 
 <strong>Unsuccessful pings:</strong><br/>
 <ul>
-  <li>One VLAN 10 PC -> one VLAN 20 PC (no inter-VLAN routing confirmed)
+  <li>One VLAN 10 PC <-> one VLAN 20 PC (no inter-VLAN routing confirmed)</li>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/BlD1gfC.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/Ahs9u5w.png" height="80%" width="80%" alt="Ping Testing"/>
+<p align="center">
+<strong>PC1</strong> (VLAN 10)<-> <strong>PC6</strong> (VLAN 20) 
 <br />
 <br />
 
