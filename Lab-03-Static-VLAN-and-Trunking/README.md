@@ -29,7 +29,7 @@ Create a Physical Topology with 2 Switches and 8 PCs from the <strong>Devices Pa
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/lRv6b5q.png" height="80%" width="80%" alt="Workspace Setup"/>
+<img src="https://i.imgur.com/56HX6E9.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
 <br />
 <br />
  
@@ -46,7 +46,7 @@ Using the <strong>Connections</strong> tab, connect each PC to its local switch 
 Wait until all PC-Switch links turn green to confirm a good physical connection.<br/>
 
 <p align="center">
-<img src="https://i.imgur.com/EVPMOjT.png" height="80%" width="80%" alt="Cabling Connections"/>
+<img src="https://i.imgur.com/2josOH9.jpeg" height="80%" width="80%" alt="Cabling Connections"/>
 <br/>
 <br/>
 
@@ -73,9 +73,9 @@ Open the CLI for each switch and configure the VLANs and access ports.<br/>
 
 <div style="display: flex; justify-content: center; gap: 20px;">
 
-  <img src="https://i.imgur.com/NS5gA1w.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+  <img src="https://i.imgur.com/dwu7LNx.png" height="45%" width="45%" alt="VLAN Configuration"/>
 
-  <img src="https://i.imgur.com/L9OYMUF.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+  <img src="https://i.imgur.com/j8qFtfX.png" height="45%" width="45%" alt="VLAN Configuration"/>
 
 </div>
 
@@ -102,7 +102,7 @@ Assign IP addresses so all eight PCs share the same IPv4 subnet while remaining 
 <strong>Subnet Mask Assigned:</strong> 255.255.255.0<br/>
 
 <p align="center">
-<img src="https://i.imgur.com/3v68Uwb.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/qIp1QdI.jpeg" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
 
@@ -115,7 +115,7 @@ Assign IP addresses so all eight PCs share the same IPv4 subnet while remaining 
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/BlD1gfC.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/Uqp6RnK.jpeg" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
 
@@ -129,7 +129,7 @@ Visually document the VLAns in the topology.
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/BlD1gfC.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/PA00wtD.png" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
 
