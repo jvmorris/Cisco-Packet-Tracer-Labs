@@ -53,7 +53,7 @@ Wait until all PC-Switch links turn green to confirm a good physical connection.
 
 <h3>Step 3: Configuring VLANs on Both Switches</h3>
 
-Open the CLI for each switch and configure the VLANs and access ports.<br/>
+Open the CLI for each switch individually and repeat the following configuration on both Switch 1 and Switch 2.<br/>
 
 <strong>VLAN Configuration:</strong><br/>
 <ul>
@@ -121,11 +121,11 @@ Assign IP addresses so all eight PCs share the same IPv4 subnet while remaining 
 
 <h3>Step 6:Add VLAN Bubbles and Labels</h3>
 
-Visually document the VLAns in the topology.
+Visually document the VLANs in the topology.
 
 <ul>
   <li>Use the <strong>Draw Ellipse</strong> in the drawing tools to create shaded "bubbles" to visualize the VLANS on each switch.</li>
-  <li>Use the <strong> Place Note</strong> to add text labels: "VLAN 10" and "VLAN 20" inside each bubble.
+  <li>Use the <strong> Place Note</strong> to add text labels: "VLAN 10" and "VLAN 20" inside each bubble.</li>
 </ul>
 
 <p align="center">
@@ -145,11 +145,22 @@ Verify correct behavior for same-VLAN and different-VLAN traffic.<br/>
   <li>One VLAN 10 PC <-> one VLAN 10 PC (across trunk)</li>
 </ul>
 
-<div style="display: flex; justify-content: center; gap: 20px;">
+<div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
 
-  <img src="https://i.imgur.com/NS5gA1w.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+  <div style="text-align: center;">
+    <img src="https://i.imgur.com/6IQqBGM.png" height="60%" width="60%" alt="VLAN Creation"/>
+    <p><strong>Switch A PC<->PC</strong></p>
+  </div>
 
-  <img src="https://i.imgur.com/L9OYMUF.jpeg" height="45%" width="45%" alt="VLAN Configuration"/>
+  <div style="text-align: center;">
+    <img src="https://i.imgur.com/v2HpFZi.png" height="60%" width="60%" alt="Access Port Assignment"/>
+    <p><strong>Switch B PC<->PC</strong></p>
+  </div>
+
+  <div style="text-align: center;">
+    <img src="https://i.imgur.com/QJXifbR.png" height="60%" width="60%" alt="Trunk Configuration"/>
+    <p><strong>VLAN 10 PC<->VLAN 10 PC</strong></p>
+  </div>
 
 </div>
 
@@ -159,7 +170,7 @@ Verify correct behavior for same-VLAN and different-VLAN traffic.<br/>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/Ahs9u5w.png" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/Ahs9u5w.png" height="60%" width="60%" alt="Ping Testing"/>
 <p align="center">
 <strong>PC1</strong> (VLAN 10)<-> <strong>PC6</strong> (VLAN 20) 
 <br />
