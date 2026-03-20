@@ -35,10 +35,9 @@ VLAN segmentation, and security implementation.
 <b>Objective: </b>Design and implement a routed LAN in Cisco Packet Tracer by connecting three PCs to an access‑layer switch, uplinking the switch to a router, assigning IP addresses and default gateways, and verifying connectivity between hosts and the router with ping. 
 <br />
 
-<h3>Lab 03: </h3>
+<h3>Lab 03: Basic VLANs and Trunking </h3>
 
-
-
+<b>Objective: </b>Configure static VLANs and an 802.1Q trunk in Cisco Packet Tracer by segmenting two switches into multiple VLANs, assigning access ports for eight PCs in a single subnet, and verifying end‑to‑end connectivity across the trunk.
 <br />
 
 <h3>Lab 04: </h3>
