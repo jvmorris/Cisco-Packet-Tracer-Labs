@@ -76,15 +76,15 @@ Each PC’s default gateway will be the matching router sub‑interface IP.<br>
  
 <h3>Step 3: Cabling The LAN</h3>
 
-Using the <strong>Connections</strong> tab, connect each PC to its local switch using copper straight‑through cables.
+Using <strong>Connections</strong> -> Copper Straight‑Through:<br>
 
 <strong>Ports Used:</strong><br/>
 <ul>
-  <li>Switch1: PCs on Fa0/1–Fa0/4</li>
-  <li>Switch2: PCs on Fa0/1–Fa0/4</li>
+  <li>Switch: PCs on Fa0/1–Fa0/6</li>
+  <li>Connect the switch uplink port (Fa0/24) to router Gi0/1</li>
 </ul>
 
-Wait until all PC-Switch links turn green to confirm a good physical connection.<br/>
+Wait until all links turn green to confirm a good physical connection.<br/>
 
 <p align="center">
 <img src="https://i.imgur.com/2josOH9.jpeg" height="80%" width="80%" alt="Cabling Connections"/>
