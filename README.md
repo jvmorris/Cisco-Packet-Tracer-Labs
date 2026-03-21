@@ -40,15 +40,26 @@ VLAN segmentation, and security implementation.
 <b>Objective: </b>Configure static VLANs and an 802.1Q trunk in Cisco Packet Tracer by segmenting two switches into multiple VLANs, assigning access ports for eight PCs in a single subnet, and verifying end‑to‑end connectivity across the trunk.
 <br />
 
-<h3>Lab 04: </h3>
+<h3>Lab 04: Multiple VLANs with Router Sub‑Interfaces (Router‑on‑a‑Stick) </h3>
 
-
+<b>Objective: </b>Configure multiple VLANs and router sub‑interfaces in Cisco Packet Tracer by assigning unique IP subnets per VLAN, enabling 802.1Q encapsulation on a router‑on‑a‑stick link, and verifying inter‑VLAN connectivity between hosts.
 <br />
 
 <h3>Lab 05: </h3>
 
-
-
+<b>Objective: </b>
 <br />
+
+<h3>Lab 06: </h3>
+
+<b>Objective: </b>
+<br />
+
+<h3>Lab 07: </h3>
+
+<b>Objective: </b>
+<br />
+
+
 
 
