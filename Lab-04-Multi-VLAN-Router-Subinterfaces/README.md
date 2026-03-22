@@ -73,27 +73,26 @@ Each PC’s default gateway will be the matching router sub‑interface IP.<br>
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://i.imgur.com/6SCuMtp.jpeg" height="200" width="250" alt="VLAN 10"/>
+      <img src="https://i.imgur.com/6SCuMtp.jpeg" height="250" width="300" alt="VLAN 10"/>
       <br><strong>VLAN 10</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="200" width="250" alt="VLAN 20"/>
+      <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="250" width="300" alt="VLAN 20"/>
       <br><strong>VLAN 20</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/aKxF5v7.jpeg" height="200" width="250" alt="VLAN 30"/>
+      <img src="https://i.imgur.com/aKxF5v7.jpeg" height="250" width="300" alt="VLAN 30"/>
       <br><strong>VLAN 30</strong>
     </td>
   </tr>
 </table>
-<br />
-
-
-
+<p align="center">
+PCs configured with VLAN-specific IPs and gateways, ready for connectivity testing.<br />
 
 <p align="center">
-<img src="https://i.imgur.com/JtEWhFt.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
-<br />
+<img src="https://i.imgur.com/JtEWhFt.jpeg" height="80%" width="80%" alt="IP Addressing and VLAN Plan"/>
+<p align="center">
+Complete IP/VLAN plan documented, ready for switch configuration.<br/>
 <br />
  
 <h3>Step 3: Cabling The LAN</h3>
@@ -136,7 +135,7 @@ Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/N9MBkdk.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/N9MBkdk.jpeg" height="80%" width="80%" alt="Configure VLANs on Switch"/>
 <br />
 <br />
 
@@ -144,7 +143,7 @@ Verify with <code>show vlan brief</code> that each port is in the expected VLAN 
 <br />
 
 <p align="center">
-<img src="https://i.imgur.com/uBof4px.jpeg" height="60%" width="60%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/uBof4px.jpeg" height="60%" width="60%" alt="VLAN Brief"/>
 <br />
 <br />
 
@@ -163,7 +162,7 @@ Configure the uplink from the switch to the router as an 802.1Q trunk.<br />
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/mCwP4Ml.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/mCwP4Ml.jpeg" height="80%" width="80%" alt="Switch Trunk"/>
 <br />
 <br />
 
@@ -183,7 +182,7 @@ On the router, configure the main interface facing the switch:<br />
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/PNIgqpT.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/PNIgqpT.jpeg" height="80%" width="80%" alt="Router Config"/>
 <br />
 <br />
 
@@ -211,7 +210,7 @@ Native sub‑interface <strong>(VLAN 1)</strong>:<br/>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/VxiwfGm.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/VxiwfGm.jpeg" height="80%" width="80%" alt="VLAN Sub-Interface"/>
 <br />
 <br />
 The router is ready for the remaining sub‑interfaces (for VLANs 10, 20, and 30), and the switch can map access ports to those VLANs in later steps.
