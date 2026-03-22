@@ -29,7 +29,7 @@ Create the topology shown in the diagram:  <br/>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/56HX6E9.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
+<img src="https://i.imgur.com/7gBkaT3.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
 <br />
 <br />
 
@@ -70,7 +70,7 @@ Pending Description:  <br/>
 Each PC’s default gateway will be the matching router sub‑interface IP.<br>
 
 <p align="center">
-<img src="https://i.imgur.com/56HX6E9.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
+<img src="https://i.imgur.com/JtEWhFt.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
 <br />
 <br />
  
@@ -87,12 +87,66 @@ Using <strong>Connections</strong> -> Copper Straight‑Through:<br>
 Wait until all links turn green to confirm a good physical connection.<br/>
 
 <p align="center">
-<img src="https://i.imgur.com/2josOH9.jpeg" height="80%" width="80%" alt="Cabling Connections"/>
+<img src="https://i.imgur.com/wQhrCtr.jpeg" height="60%" width="60%" alt="Cabling Connections"/>
 <br/>
 <br/>
 
+<h3>Step 4: Configure VLANs and Access Ports on the Switch</h3>
 
-<h3>Step 4: Configure Router Physical Interface</h3>
+Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
+
+<strong>VLAN Configuration</strong><br/>
+<ul>
+  <li>Create and name the VLANs:
+     <ul>
+        <li>VLAN 10 - <code>Zone 10</code> </li>
+        <li>VLAN 20 - <code>Zone 20</code></li>
+        <li>VLAN 30 - <code>Zone 30</code></li>
+    </ul>
+  </li>
+</ul>
+
+<strong>Access Port Assignments</strong>:<br/>
+<ul>
+  <li>Fa0/1–Fa0/2 → access ports in VLAN 10 (PC1–PC2)</li>
+  <li>Fa0/3–Fa0/4 → access ports in VLAN 20 (PC3–PC4)N</li>
+  <li>Fa0/5–Fa0/6 → access ports in VLAN 30 (PC5–PC6)</li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/N9MBkdk.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<br />
+<br />
+
+Verify with <code>show vlan brief</code> that each port is in the expected VLAN and take a screenshot of the output.
+<br />
+
+<p align="center">
+<img src="https://i.imgur.com/uBof4px.jpeg" height="60%" width="60%" alt="Ping Testing"/>
+<br />
+<br />
+
+<h3>Step 5: Configure the Switch Trunk to the Router</h3>
+
+Configure the uplink from the switch to the router as an 802.1Q trunk.<br />
+
+<ul>
+  <li>Interface Fa0/24 on the switch:</li>
+    <ul>
+      <li>Set encapsulation to <code>dot1q</code></li>
+      <li>Set mode to <code>trunk</code></li>
+      <li>Allow VLANs 10, 20, and 30 on the trunk</li>
+    </ul>
+    </li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/mCwP4Ml.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<br />
+<br />
+
+
+<h3>Step 6: Configure Router Physical Interface</h3>
 
 On the router, configure the main interface facing the switch:<br />
 
@@ -101,130 +155,116 @@ On the router, configure the main interface facing the switch:<br />
   <li>Assign the native network address and bring the interface up:
     <ul>
       <li><strong>IP address:</strong> 172.168.1.1 /24</li>
-      <li>Command: <strong>no shutdown</strong></li>
+      <li>Command: <code>no shutdown</code></li>
     </ul>
     </li>
 </ul>
 
-
-
 <p align="center">
-<img src="https://i.imgur.com/qIp1QdI.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/PNIgqpT.jpeg" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
 
-  
-<h3>Step 5: Configuring VLANs and Assign Access Ports</h3>
 
-Open the CLI for VLAN configuration for the Switch in the topology.<br/>
+<h3>Step 7: Configure Native VLAN Sub‑Interface and Define VLANs on Router</h3>
+
+With Gi0/1 up and connected to the switch, create the native sub‑interface and define the VLANs on the router.<br/>
+
+Native sub‑interface <strong>(VLAN 1)</strong>:<br/>
+<ul>
+  <li>Create sub‑interface <code>Gi0/1.1</code></li>
+  <li>Configure 802.1Q encapsulation with VLAN 1 as the native VLAN</li>
+  <li>Assign the default gateway IP for the native VLAN</li>
+</ul>
 
 <strong>VLAN Configuration:</strong><br/>
 <ul>
   <li>Create and name the VLANs
      <ul>
-        <li>VLAN 10 - <strong> Zone 10</strong> </li>
-        <li>VLAN 20 - <strong> Zone 20</strong></li>
-        <li>VLAN 30 - <strong> Zone 30</strong></li>
+        <li>VLAN 10 - <code>Zone 10</code> </li>
+        <li>VLAN 20 - <code>Zone 20</code></li>
+        <li>VLAN 30 - <code>Zone 30</code></li>
     </ul>
   </li>
-  <li>Assign Access Ports to VLANs
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/VxiwfGm.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<br />
+<br />
+The router is ready for the remaining sub‑interfaces (for VLANs 10, 20, and 30), and the switch can map access ports to those VLANs in later steps.
+<br />
+
+
+<h3>Step 8: Configure Router Sub‑Interfaces for Each VLAN</h3>
+
+With the native sub‑interface and VLANs defined, configure 802.1Q sub‑interfaces on <strong>Gi0/1</strong> to provide a default gateway for each VLAN.<br/>
+
+<strong>Create 802.1Q sub‑interfaces</strong>:<br/>
+
+<ul>
+  <li>For <strong>VLAN 10</strong>:
+    <ul>
+      <li>Interface: <code>Gi0/1.10</code></li>
+      <li>Encapsulation: <code>dot1Q 10</code></li>
+      <li>IP address: <code>192.168.10.1 255.255.255.240</code></li>
+    </ul>
+  </li>
+  <li>For <strong>VLAN 20</strong>:
+    <ul>
+      <li>Interface: <code>Gi0/1.20</code></li>
+      <li>Encapsulation: <code>dot1Q 20</code></li>
+      <li>IP address: <code>192.168.20.1 255.255.255.240</code></li>
+    </ul>
+  </li>
+  <li>For <strong>VLAN 30</strong>:
      <ul>
-        <li>Fa0/1-2: access ports to VLAN 10</li>
-        <li>Fa0/3-4: access ports to VLAN 20</li>
-        <li>Fa0/5-6: access ports to VLAN 30</li>
+      <li>Interface: <code>Gi0/1.30</code></li>
+      <li>Encapsulation: <code>dot1Q 30</code></li>
+      <li>IP address: <code>192.168.30.1 255.255.255.240</code></li>
     </ul>
   </li>
 </ul>
 
-
-
-
-<div style="display: flex; justify-content: center; gap: 20px;">
-
-  <img src="https://i.imgur.com/dwu7LNx.png" height="45%" width="45%" alt="VLAN Configuration"/>
-
-  <img src="https://i.imgur.com/j8qFtfX.png" height="45%" width="45%" alt="VLAN Configuration"/>
-
-</div>
-
-<br />
-<br />
-
-
-
-<h3>Step 6: Connect the Switches Together</h3>
-
-<ul>
-  <li>From the <strong>Connections</strong> toolbar, select a copper straight-through cable</li>
-  <li>Port Used: Fa0/24</li>
-  <li>Wait until the inter-switch link turns green on both ends to confirm a good physical connection</li>
-</ul>
-
 <p align="center">
-<img src="https://i.imgur.com/Uqp6RnK.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/fJqOiU9.jpeg" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
-
-<h3>Step 6:Add VLAN Bubbles and Labels</h3>
-
-Visually document the VLANs in the topology.
-
-<ul>
-  <li>Use the <strong>Draw Ellipse</strong> in the drawing tools to create shaded "bubbles" to visualize the VLANS on each switch.</li>
-  <li>Use the <strong> Place Note</strong> to add text labels: "VLAN 10" and "VLAN 20" inside each bubble.</li>
-</ul>
-
-<p align="center">
-<img src="https://i.imgur.com/PA00wtD.png" height="80%" width="80%" alt="Ping Testing"/>
-<br />
+After creating the sub‑interfaces, I set the router hostname to LAN-A-Router and saved the running configuration to startup configuration so the router‑on‑a‑stick setup persists across reboots.
 <br />
 
-<h3>Step 7: Connectivity Testing Across VLANs and Switches</h3>
+<h3>Step 9: Connectivity Testing (Inter-VLAN Routing)</h3>
 
-Verify correct behavior for same-VLAN and different-VLAN traffic.<br/>
-
+Verify that the router sub‑interfaces are correctly routing between VLANs.<br/>
 
 <strong>Successful pings:</strong><br/>
 <ul>
-  <li>PC<->PC on Switch A</li>
-  <li>PC<->PC on Switch B</li>
-  <li>One VLAN 10 PC <-> one VLAN 10 PC (across trunk)</li>
+  <li>From a <strong>VLAN 10 PC</strong>, ping:
+    <ul>
+      <li>Its own gateway: <code>192.168.10.1</code></li>
+      <li>PC ↔ PC ping in VLAN 10</li>
+    </ul>
+  </li>
 </ul>
-
-<div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-
-  <div style="text-align: center;">
-    <img src="https://i.imgur.com/6IQqBGM.png" height="60%" width="60%" alt="VLAN Creation"/>
-    <p><strong>Switch A PC<->PC</strong></p>
-  </div>
-
-  <div style="text-align: center;">
-    <img src="https://i.imgur.com/v2HpFZi.png" height="60%" width="60%" alt="Access Port Assignment"/>
-    <p><strong>Switch B PC<->PC</strong></p>
-  </div>
-
-  <div style="text-align: center;">
-    <img src="https://i.imgur.com/QJXifbR.png" height="60%" width="60%" alt="Trunk Configuration"/>
-    <p><strong>VLAN 10 PC<->VLAN 10 PC</strong></p>
-  </div>
-
-</div>
 
 <strong>Unsuccessful pings:</strong><br/>
 <ul>
-  <li>One VLAN 10 PC <-> one VLAN 20 PC (no inter-VLAN routing confirmed)</li>
+  <li>From a <strong>VLAN 10 PC</strong>, ping:
+    <ul>
+      <li>A VLAN 20 PC: <code>192.168.20.3</code></li>
+      <li>A VLAN 30 PC: <code>192.168.30.5</code></li>
+    </ul>
+  </li>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/Ahs9u5w.png" height="60%" width="60%" alt="Ping Testing"/>
-<p align="center">
-<strong>PC1</strong> (VLAN 10)<-> <strong>PC6</strong> (VLAN 20) 
+<img src="https://i.imgur.com/z5WCE9O.png" height="80%" width="80%" alt="Ping Testing"/>
 <br />
 <br />
 
 <h3>Conclusion and Key Takeaways</h3>
 
-This lab demonstrated how to configure static VLANs and an 802.1Q trunk link between two Cisco switches in Packet Tracer, allowing eight hosts to share a single IP subnet while remaining logically segmented. By creating VLANs, assigning access ports, and enabling a trunk that carries tagged traffic for multiple VLANs, I built a small but realistic example of how enterprise switches implement network segmentation at Layer 2.
+This lab demonstrated how to use VLANs and router sub‑interfaces to create multiple isolated IP networks on a single switch while still allowing controlled communication between them. By combining static VLAN configuration, an 802.1Q trunk, and router‑on‑a‑stick sub‑interfaces, I built a small multi‑VLAN environment that mirrors how enterprises segment traffic and route between internal networks on shared infrastructure.
 
 
 <!--
