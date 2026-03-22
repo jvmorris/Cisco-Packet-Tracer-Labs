@@ -129,9 +129,9 @@ Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
 
 <strong>Access Port Assignments</strong>:<br/>
 <ul>
-  <li>Fa0/1–Fa0/2 → access ports in VLAN 10 (PC1–PC2)</li>
-  <li>Fa0/3–Fa0/4 → access ports in VLAN 20 (PC3–PC4)</li>
-  <li>Fa0/5–Fa0/6 → access ports in VLAN 30 (PC5–PC6)</li>
+  <li>Fa0/1–Fa0/2 →  VLAN 10 (PC1–PC2)</li>
+  <li>Fa0/3–Fa0/4 →  VLAN 20 (PC3–PC4)</li>
+  <li>Fa0/5–Fa0/6 →  VLAN 30 (PC5–PC6)</li>
 </ul>
 
 <p align="center">
@@ -139,7 +139,7 @@ Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
 <br />
 <br />
 
-Verify with <code>show vlan brief</code> that each port is in the expected VLAN and take a screenshot of the output.
+Verify with <code>show vlan brief</code> that each port is in the expected VLAN.
 <br />
 
 <p align="center">
@@ -181,8 +181,9 @@ On the router, configure the main interface facing the switch:<br />
     </li>
 </ul>
 
+Verify with <code>show ip int brief</code> that the router is configured properly.
 <p align="center">
-<img src="https://i.imgur.com/PNIgqpT.jpeg" height="80%" width="80%" alt="Router Config"/>
+<img src="https://i.imgur.com/PscJwYg.jpeg" height="80%" width="80%" alt="Router Config"/>
 <br />
 <br />
 
