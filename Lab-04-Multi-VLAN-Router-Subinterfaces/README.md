@@ -24,7 +24,7 @@ Create the topology shown in the diagram:  <br/>
 <strong>Devices Used:</strong><br/>
 <ul>
   <li>Router: 1 x 2901</li>
-  <li>Switch: 2 x 3560-24PS</li>
+  <li>Switch: 1 x 3560-24PS</li>
   <li>End Devices: 6 x PC (PC1 - PC6) </li>
 </ul>
 
@@ -35,7 +35,7 @@ Create the topology shown in the diagram:  <br/>
 
 <h3>Step 2: IP Addressing and VLAN Plan</h3>
 
-Pending Description:  <br/>
+Open the IP Configuration utility on each PC and assign VLAN-specific IP addresses and default gateways. <br/>
 
 <strong>Router IP/VLAN Configuration Plan:</strong><br/>
 <ul>
