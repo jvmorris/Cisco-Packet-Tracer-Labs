@@ -37,7 +37,7 @@ Create the topology shown in the diagram:  <br/>
 
 Pending Description:  <br/>
 
-<strong>Router IP/VLAN Configuration:</strong><br/>
+<strong>Router IP/VLAN Configuration Plan:</strong><br/>
 <ul>
   <li>Router physical: 172.168.1.1 /24 on Gi0/1 </li>
   <li>VLAN 10 subnet: 192.168.10.1 /24</li>
@@ -92,21 +92,48 @@ Wait until all links turn green to confirm a good physical connection.<br/>
 <br/>
 
 
-<h3>Step 4: Configuring VLANs on Both Switches</h3>
+<h3>Step 4: Configure Router Physical Interface</h3>
 
-Open the CLI for each switch individually and repeat the following configuration on both Switch 1 and Switch 2.<br/>
+On the router, configure the main interface facing the switch:<br />
+
+<ul>
+  <li>Enter configuration mode and select Gi0/1</li>
+  <li>Assign the native network address and bring the interface up:
+    <ul>
+      <li><strong>IP address:</strong> 172.168.1.1 /24</li>
+      <li>Command: <strong>no shutdown</strong></li>
+    </ul>
+    </li>
+</ul>
+
+
+
+<p align="center">
+<img src="https://i.imgur.com/qIp1QdI.jpeg" height="80%" width="80%" alt="Ping Testing"/>
+<br />
+<br />
+
+  
+<h3>Step 5: Configuring VLANs and Assign Access Ports</h3>
+
+Open the CLI for VLAN configuration for the Switch in the topology.<br/>
 
 <strong>VLAN Configuration:</strong><br/>
 <ul>
-  <li>Create VLAN 10 and VLAN 20
+  <li>Create and name the VLANs
+     <ul>
+        <li>VLAN 10 - <strong> Zone 10</strong> </li>
+        <li>VLAN 20 - <strong> Zone 20</strong></li>
+        <li>VLAN 30 - <strong> Zone 30</strong></li>
+    </ul>
+  </li>
   <li>Assign Access Ports to VLANs
      <ul>
         <li>Fa0/1-2: access ports to VLAN 10</li>
         <li>Fa0/3-4: access ports to VLAN 20</li>
-        <li>Optionally shut down unused ports Fa0/5-23</li>
+        <li>Fa0/5-6: access ports to VLAN 30</li>
     </ul>
   </li>
-  <li>Configure the 802.1Q Trunk</li>
 </ul>
 
 
@@ -123,29 +150,7 @@ Open the CLI for each switch individually and repeat the following configuration
 <br />
 <br />
 
-  
-<h3>Step 5: PC IP Configuration</h3>
 
-Assign IP addresses so all eight PCs share the same IPv4 subnet while remaining logically separated by VLANs.
-
-<strong>IP Address Assigned:</strong><br/>
-<ul>
-  <li>PC 0: 192.168.21.11</li>
-  <li>PC 1: 192.168.21.12</li>
-  <li>PC 2: 192.168.21.13</li>
-  <li>PC 3: 192.168.21.14</li>
-  <li>PC 4: 192.168.21.15</li>
-  <li>PC 5: 192.168.21.16</li>
-  <li>PC 6: 192.168.21.17</li>
-  <li>PC 7: 192.168.21.18</li>
-</ul>
-
-<strong>Subnet Mask Assigned:</strong> 255.255.255.0<br/>
-
-<p align="center">
-<img src="https://i.imgur.com/qIp1QdI.jpeg" height="80%" width="80%" alt="Ping Testing"/>
-<br />
-<br />
 
 <h3>Step 6: Connect the Switches Together</h3>
 
