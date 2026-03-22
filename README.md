@@ -45,9 +45,9 @@ VLAN segmentation, and security implementation.
 <b>Objective: </b>Configure multiple VLANs and router sub‑interfaces in Cisco Packet Tracer by assigning unique IP subnets per VLAN, enabling 802.1Q encapsulation on a router‑on‑a‑stick link, and verifying inter‑VLAN connectivity between hosts.
 <br />
 
-<h3>Lab 05: </h3>
+<h3>Lab 05: Static Routing Between Multi‑VLAN Networks</h3>
 
-<b>Objective: </b>
+<b>Objective: </b>Configure static routes between two multi‑VLAN networks in Cisco Packet Tracer by connecting routers over a serial link, assigning IPs to router interfaces and VLANs, enabling trunk ports, and using gateways of last resort to provide end‑to‑end connectivity between workstations.
 <br />
 
 <h3>Lab 06: </h3>
