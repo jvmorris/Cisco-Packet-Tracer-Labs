@@ -49,25 +49,44 @@ Open the IP Configuration utility on each PC and assign VLAN-specific IP address
 <ul>
   <li>VLAN 10:
     <ul>
-      <li>PC1: 192.168.10.2/24 - Fa0/1</li>
-      <li>PC2: 192.168.10.3/24 - Fa0/2</li>
+      <li>PC1: 192.168.10.2 - Fa0/1</li>
+      <li>PC2: 192.168.10.3 - Fa0/2</li>
     </ul>
   </li>
    <li>VLAN 20:
     <ul>
-      <li>PC3: 192.168.20.3/24 - Fa0/3</li>
-      <li>PC4: 192.168.20.4/24 - Fa0/4</li>
+      <li>PC3: 192.168.20.3 - Fa0/3</li>
+      <li>PC4: 192.168.20.4 - Fa0/4</li>
     </ul>
   </li>
   <li>VLAN 30:
     <ul>
-      <li>PC5: 192.168.30.5/24 - Fa0/5</li>
-      <li>PC6: 192.168.30.6/24 - Fa0/6</li>
+      <li>PC5: 192.168.30.5 - Fa0/5</li>
+      <li>PC6: 192.168.30.6 - Fa0/6</li>
     </ul>
   </li>
 </ul>
 
+<strong>Subnet Mask Assigned</strong>: <code> 255.255.255.240</code><br />
 Each PC’s default gateway will be the matching router sub‑interface IP.<br>
+
+<div style="display: flex; justify-content: center; gap: 15px;">
+  <div style="text-align: center;">
+    <img src="https://i.imgur.com/6SCuMtp.jpeg" height="200px" width="250px" alt="VLAN 10 PC Configuration"/>
+    <p><strong>VLAN 10</strong></p>
+  </div>
+  <div style="text-align: center;">
+    <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="200px" width="250px" alt="VLAN 20 PC Configuration"/>
+    <p><strong>VLAN 20</strong></p>
+  </div>
+  <div style="text-align: center;">
+    <img src="https://i.imgur.com/aKxF5v7.jpeg" height="200px" width="250px" alt="VLAN 30 PC Configuration"/>
+    <p><strong>VLAN 30</strong></p>
+  </div>
+</div>
+<br />
+
+
 
 <p align="center">
 <img src="https://i.imgur.com/JtEWhFt.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
@@ -109,7 +128,7 @@ Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
 <strong>Access Port Assignments</strong>:<br/>
 <ul>
   <li>Fa0/1–Fa0/2 → access ports in VLAN 10 (PC1–PC2)</li>
-  <li>Fa0/3–Fa0/4 → access ports in VLAN 20 (PC3–PC4)N</li>
+  <li>Fa0/3–Fa0/4 → access ports in VLAN 20 (PC3–PC4)</li>
   <li>Fa0/5–Fa0/6 → access ports in VLAN 30 (PC5–PC6)</li>
 </ul>
 
@@ -207,7 +226,7 @@ With the native sub‑interface and VLANs defined, configure 802.1Q sub‑interf
     <ul>
       <li>Interface: <code>Gi0/1.10</code></li>
       <li>Encapsulation: <code>dot1Q 10</code></li>
-      <li>IP address: <code>192.168.10.1 255.255.255.240</code></li>
+      <li>IP address: <code>192.168.10.1 /24</code></li>
     </ul>
   </li>
   <li>For <strong>VLAN 20</strong>:
