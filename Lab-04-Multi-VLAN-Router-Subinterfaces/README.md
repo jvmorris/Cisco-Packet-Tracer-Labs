@@ -70,21 +70,24 @@ Open the IP Configuration utility on each PC and assign VLAN-specific IP address
 <strong>Subnet Mask Assigned</strong>: <code> 255.255.255.240</code><br />
 Each PC’s default gateway will be the matching router sub‑interface IP.<br>
 
-<div style="display: flex; justify-content: center; gap: 15px;">
-  <div style="text-align: center;">
-    <img src="https://i.imgur.com/6SCuMtp.jpeg" height="200px" width="250px" alt="VLAN 10 PC Configuration"/>
-    <p><strong>VLAN 10</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="200px" width="250px" alt="VLAN 20 PC Configuration"/>
-    <p><strong>VLAN 20</strong></p>
-  </div>
-  <div style="text-align: center;">
-    <img src="https://i.imgur.com/aKxF5v7.jpeg" height="200px" width="250px" alt="VLAN 30 PC Configuration"/>
-    <p><strong>VLAN 30</strong></p>
-  </div>
-</div>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://i.imgur.com/6SCuMtp.jpeg" height="200" width="250" alt="VLAN 10"/>
+      <br><strong>VLAN 10</strong>
+    </td>
+    <td align="center">
+      <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="200" width="250" alt="VLAN 20"/>
+      <br><strong>VLAN 20</strong>
+    </td>
+    <td align="center">
+      <img src="https://i.imgur.com/aKxF5v7.jpeg" height="200" width="250" alt="VLAN 30"/>
+      <br><strong>VLAN 30</strong>
+    </td>
+  </tr>
+</table>
 <br />
+
 
 
 
