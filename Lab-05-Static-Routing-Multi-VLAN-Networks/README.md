@@ -120,7 +120,7 @@ Verify VLAN membership with <code>show vlan brief</code>.
 Configure the uplink from the switch:<code>LSW1</code> to the router as an 802.1Q trunk.<br />
 
 <ul>
-  <li>Interface Fa0/24 on the switch:</li>
+  <li>Interface Gi0/1 on the switch:</li>
     <ul>
       <li>Set encapsulation to <code>dot1q</code></li>
       <li>Set mode to <code>trunk</code></li>
