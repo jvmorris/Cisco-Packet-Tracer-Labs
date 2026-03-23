@@ -34,81 +34,103 @@ Create the topology shown in the diagram:  <br/>
 <br />
 <br />
 
-<h3>Step 2: IP Addressing and VLAN Plan</h3>
+<h3>Step 2: Router Interface and VLAN Addressing Plan</h3>
 
-Open the IP Configuration utility on each PC and assign VLAN-specific IP addresses and default gateways. <br/>
+Review router interface addressing tables for both LAB-R1 and LAB-R2 across all VLANs and serial links. <br/>
 
-<strong>Router IP/VLAN Configuration Plan:</strong><br/>
-<ul>
-  <li>Router physical: 172.168.1.1 /24 on Gi0/1 </li>
-  <li>VLAN 10 subnet: 192.168.10.1 /24</li>
-  <li>VLAN 20 subnet: 192.168.20.1 /24</li>
-  <li>VLAN 30 subnet: 192.168.30.1 /24</li>
-</ul>
+| Router / LAB-R1 / Interface | IPv4 Address / Subnet | VLAN |
+|---|---|---|
+| Serial 0/0/0 | 10.10.10.1 / 30 | n/a |
+| Gi 0/1 | 172.168.1.1 / 24 | n/a |
+| Gi0/1.1 | 192.168.100.1 / 24 | vlan 1 (default) |
+| Gi0/1.10 | 192.168.10.1 / 28 | vlan10 (zone10) |
+| Gi0/1.20 | 192.168.20.1 / 28 | vlan20 (zone20) |
+| Gi0/1.30 | 192.168.30.1 / 28 | vlan30 (zone30) |
 
-<strong>PC assignments:</strong><br/>
-<ul>
-  <li>VLAN 10:
-    <ul>
-      <li>PC1: 192.168.10.2 - Fa0/1</li>
-      <li>PC2: 192.168.10.3 - Fa0/2</li>
-    </ul>
-  </li>
-   <li>VLAN 20:
-    <ul>
-      <li>PC3: 192.168.20.3 - Fa0/3</li>
-      <li>PC4: 192.168.20.4 - Fa0/4</li>
-    </ul>
-  </li>
-  <li>VLAN 30:
-    <ul>
-      <li>PC5: 192.168.30.5 - Fa0/5</li>
-      <li>PC6: 192.168.30.6 - Fa0/6</li>
-    </ul>
-  </li>
-</ul>
-
-<strong>Subnet Mask Assigned</strong>: <code> 255.255.255.240</code><br />
-Each PC’s default gateway will be the matching router sub‑interface IP.<br>
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="https://i.imgur.com/6SCuMtp.jpeg" height="250" width="300" alt="VLAN 10"/>
-      <br><strong>VLAN 10</strong>
-    </td>
-    <td align="center">
-      <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="250" width="300" alt="VLAN 20"/>
-      <br><strong>VLAN 20</strong>
-    </td>
-    <td align="center">
-      <img src="https://i.imgur.com/aKxF5v7.jpeg" height="250" width="300" alt="VLAN 30"/>
-      <br><strong>VLAN 30</strong>
-    </td>
-  </tr>
-</table>
-<p align="center">
-PCs configured with VLAN-specific IPs and gateways, ready for connectivity testing.<br />
-
-<p align="center">
-<img src="https://i.imgur.com/JtEWhFt.jpeg" height="80%" width="80%" alt="IP Addressing and VLAN Plan"/>
-<p align="center">
-Complete IP/VLAN plan documented, ready for switch configuration.<br/>
-<br />
+| Router / LAB-R2 / Interface | IPv4 Address / Subnet | VLAN |
+|---|---|---|
+| Serial 0/0/0 | 10.10.10.2 / 30 | n/a |
+| Gi 0/1 | 172.168.2.1 / 24 | n/a |
+| Gi0/1.1 | 192.168.200.1 / 24 | vlan 1 (default) |
+| Gi0/1.110 | 192.168.110.1 / 28 | vlan110 (zone110) |
+| Gi0/1.120 | 192.168.120.1 / 28 | vlan120 (zone120) |
+| Gi0/1.130 | 192.168.130.1 / 28 | vlan130 (zone130) |
  
-<h3>Step 3: Cabling The LAN</h3>
+<h3>Step 3: Cabling All Devices</h3>
 
-Using <strong>Connections</strong> -> Copper Straight‑Through:<br>
+Build physical connections for both Networks.<br>
 
-<strong>Ports Used:</strong><br/>
 <ul>
-  <li>Switch: PCs on Fa0/1–Fa0/6</li>
-  <li>Connect the switch uplink port (Fa0/24) to router Gi0/1</li>
+  <li>Use copper straight-through cables for all  <strong>PC → Switch</strong> connections.</li>
+  <li>Connect the switch to the router’s Ethernet interface <code>Gi0/1 → Gi0/1</code> on each side.</li>
+  <li>Install serial WICs on both routers if needed, then connect LAB‑R1’s serial interface (Serial0/0/0) to LAB‑R2’s serial interface (Serial0/0/0) using a <strong>Serial DCE</strong> cable.</li>
+  <li>Wait for all <strong>PC → Switch</strong> links to turn green to confirm physical connectivity.</li>
 </ul>
-
-Wait until all links turn green to confirm a good physical connection.<br/>
 
 <p align="center">
 <img src="https://i.imgur.com/wQhrCtr.jpeg" height="60%" width="60%" alt="Cabling Connections"/>
+<p align="center">
+Installation of Serial Module on Router
+<br/>
+
+<p align="center">
+<img src="https://i.imgur.com/wQhrCtr.jpeg" height="60%" width="60%" alt="Cabling Connections"/>
+<p align="center">
+All Devices Successfully Connected
 <br/>
 <br/>
+
+<h3>Step 4: Configure VLANs and Access Ports on Switch:<code>LSW1</code></h3>
+
+Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
+
+<strong>VLAN Configuration</strong><br/>
+<ul>
+  <li>Create and name the VLANs:
+     <ul>
+        <li>VLAN 10 - <code>Zone 10</code> </li>
+        <li>VLAN 20 - <code>Zone 20</code></li>
+        <li>VLAN 30 - <code>Zone 30</code></li>
+    </ul>
+  </li>
+</ul>
+
+<strong>Access Port Assignments</strong>:<br/>
+<ul>
+  <li>Fa0/1–Fa0/2 →  VLAN 10 PCs</li>
+  <li>Fa0/9–Fa0/10 →  VLAN 20 PCs</li>
+  <li>Fa0/17–Fa0/8 →  VLAN 30 PCs</li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/N9MBkdk.jpeg" height="80%" width="80%" alt="Configure VLANs on Switch"/>
+<br />
+<br />
+
+Verify VLAN membership with <code>show vlan brief</code>.
+<br />
+
+<p align="center">
+<img src="https://i.imgur.com/uBof4px.jpeg" height="60%" width="60%" alt="VLAN Brief"/>
+<br />
+<br />
+
+<h3>Step 5: Configure Trunk Port and Default VLAN on <code>LSW1</code></h3>
+
+Configure the uplink from the switch:<code>LSW1</code> to the router as an 802.1Q trunk.<br />
+
+<ul>
+  <li>Interface Fa0/24 on the switch:</li>
+    <ul>
+      <li>Set encapsulation to <code>dot1q</code></li>
+      <li>Set mode to <code>trunk</code></li>
+      <li>Allow VLANs 10, 20, and 30 on the trunk</li>
+    </ul>
+    </li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/mCwP4Ml.jpeg" height="80%" width="80%" alt="Switch Trunk"/>
+<br />
+<br />
+
