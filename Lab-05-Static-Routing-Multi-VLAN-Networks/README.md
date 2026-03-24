@@ -203,15 +203,15 @@ Repeat Steps 4-7 for Network 2.<br />
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://i.imgur.com/6SCuMtp.jpeg" height="250" width="300" alt="VLAN Config"/>
+      <img src="https://i.imgur.com/XyDkNEl.jpeg" height="250" width="300" alt="VLAN Config"/>
       <br><strong>VLAN Config</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="250" width="300" alt="Router IP Config"/>
+      <img src="https://i.imgur.com/eohLhgx.jpeg" height="250" width="300" alt="Router IP Config"/>
       <br><strong>Router IP Coonfig</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/aKxF5v7.jpeg" height="250" width="300" alt="Complete Config"/>
+      <img src="https://i.imgur.com/McfqleO.jpeg" height="250" width="300" alt="Complete Config"/>
       <br><strong>Complete Config</strong>
     </td>
   </tr>
@@ -243,38 +243,60 @@ Set a gateway of last resort on both routers so unknown traffic uses the serial 
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/z5WCE9O.png" height="80%" width="80%" alt="Ping Testing"/>
+<img src="https://i.imgur.com/51iKgGd.jpeg" height="80%" width="80%" alt="Defaulrt Routes"/>
 <br />
 <br />
 
 <h3>Step 10: Connectivity Testing (Inter-VLAN Routing)</h3>
 
-Verify that the router sub‑interfaces are correctly routing between VLANs.<br/>
+First, verify local connectivity on both sides.<br/>
 
-<strong>Successful pings:</strong><br/>
 <ul>
-  <li>From a <strong>VLAN 10 PC</strong>, ping:
+  <li>From each VLAN in <strong>Network 1</strong>:
     <ul>
-      <li>Its own gateway: <code>192.168.10.1</code></li>
-      <li>PC ↔ PC ping in VLAN 10</li>
+      <li>Ping another PC in the same VLAN.</li>
+      <li>Ping the default gateway.</li>
     </ul>
   </li>
+  <li>Repeat the same tests for Network 2</li>
 </ul>
 
-<strong>Unsuccessful pings:</strong><br/>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://i.imgur.com/m4i185g.jpeg" height="250" width="300" alt="Network 1 Ping"/>
+      <br><strong>Network 1</strong>
+    </td>
+    <td align="center">
+      <img src="https://i.imgur.com/6Wz7wrq.jpeg" height="250" width="300" alt="Network 2 Ping"/>
+      <br><strong>Network 2</strong>
+    </td>
+  </tr>
+</table>
+
+<h3>Step 11: Test End-to-End Connectivity Between Networks</h3>
+
+Finally, confirm static routing across the serial link.<br/>
+
 <ul>
-  <li>From a <strong>VLAN 10 PC</strong>, ping:
-    <ul>
-      <li>A VLAN 20 PC: <code>192.168.20.3</code></li>
-      <li>A VLAN 30 PC: <code>192.168.30.5</code></li>
-    </ul>
-  </li>
+  <li>From <code>LAB‑R1</code>, ping <strong>LAB‑R2’s</strong> serial IP and vice versa to verify router‑to‑router reachability.</li>
+  <li>Then test PC-to-PC pings across networks.</li>
+  <li>Successful replies confirm static routing and gateways of last resort are working end-to-end.</li>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/z5WCE9O.png" height="80%" width="80%" alt="Ping Testing"/>
-<br />
-<br />
+<img src="https://i.imgur.com/D3z0MsO.jpeg" height="60%" width="60%" alt="Router-Router Ping"/>
+<p align="center">
+Router-to-Router Ping Across Networks
+<br/>
+
+<p align="center">
+<img src="https://i.imgur.com/VajHn2P.jpeg" height="60%" width="60%" alt="PC-PC Ping"/>
+<p align="center">
+PC-to-PC Ping Across Networks
+<br/>
+<br/>
+
 
 <h3>Conclusion and Key Takeaways</h3>
 
