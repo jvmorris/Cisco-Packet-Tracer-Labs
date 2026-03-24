@@ -149,7 +149,7 @@ On <code>LAB-R1</code>, configure Ethernet sub-interfaces and the serrial interf
 
 Verify with <code>show ip int brief</code> that the router is configured properly.
 <p align="center">
-<img src="https://i.imgur.com/3iJgzda.jpeg" height="80%" width="80%" alt="Router Config"/>
+<img src="https://i.imgur.com/CE72uaU.jpeg" height="80%" width="80%" alt="Router Config"/>
 <br />
 <br />
 
@@ -193,8 +193,6 @@ PCs configured with VLAN-specific IPs and gateways, ready for connectivity testi
 
 Repeat Steps 4-7 for Network 2.<br />
 
-<code></code>
-
 <ul>
   <li>Cable PCs to the <code>NETWORK2</code> switch and connect the switch to the Ethernet interface for <code>LAB-R2</code>.</li>
   <li>Create the same VLANs and assign access ports on the Network 2 switch.</li>
@@ -205,18 +203,80 @@ Repeat Steps 4-7 for Network 2.<br />
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://i.imgur.com/6SCuMtp.jpeg" height="250" width="300" alt="VLAN 10"/>
+      <img src="https://i.imgur.com/6SCuMtp.jpeg" height="250" width="300" alt="VLAN Config"/>
       <br><strong>VLAN Config</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="250" width="300" alt="VLAN 20"/>
-      <br><strong>Trunk Config</strong>
+      <img src="https://i.imgur.com/aQ7A4Al.jpeg" height="250" width="300" alt="Router IP Config"/>
+      <br><strong>Router IP Coonfig</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/aKxF5v7.jpeg" height="250" width="300" alt="VLAN 30"/>
-      <br><strong>PC Config</strong>
+      <img src="https://i.imgur.com/aKxF5v7.jpeg" height="250" width="300" alt="Complete Config"/>
+      <br><strong>Complete Config</strong>
     </td>
   </tr>
 </table>
 <p align="center">
 PCs configured with VLAN-specific IPs and gateways, ready for connectivity testing.<br />
+
+
+<h3>Step 9: Configure Default Routes (Gateway of Last Resort)</h3>
+
+Set a gateway of last resort on both routers so unknown traffic uses the serial link.<br/>
+
+<strong>On Lab-R1:</strong><br/>
+<ul>
+  <li>In global configuration:
+    <ul>
+      <li>Its own gateway: <code>192.168.10.1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<strong>On Lab-R2:</strong><br/>
+<ul>
+  <li>In global configuration:
+    <ul>
+      <li>Its own gateway: <code>192.168.10.1</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/z5WCE9O.png" height="80%" width="80%" alt="Ping Testing"/>
+<br />
+<br />
+
+<h3>Step 10: Connectivity Testing (Inter-VLAN Routing)</h3>
+
+Verify that the router sub‑interfaces are correctly routing between VLANs.<br/>
+
+<strong>Successful pings:</strong><br/>
+<ul>
+  <li>From a <strong>VLAN 10 PC</strong>, ping:
+    <ul>
+      <li>Its own gateway: <code>192.168.10.1</code></li>
+      <li>PC ↔ PC ping in VLAN 10</li>
+    </ul>
+  </li>
+</ul>
+
+<strong>Unsuccessful pings:</strong><br/>
+<ul>
+  <li>From a <strong>VLAN 10 PC</strong>, ping:
+    <ul>
+      <li>A VLAN 20 PC: <code>192.168.20.3</code></li>
+      <li>A VLAN 30 PC: <code>192.168.30.5</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/z5WCE9O.png" height="80%" width="80%" alt="Ping Testing"/>
+<br />
+<br />
+
+<h3>Conclusion and Key Takeaways</h3>
+
+This lab combined VLANs, trunk ports, router sub‑interfaces, serial links, and static routing to connect two separate multi‑VLAN networks. By configuring IP addressing, VLANs, gateways of last resort, and static routes on each router, I enabled reliable end‑to‑end communication between PCs on different networks while maintaining clear Layer 2 segmentation and Layer 3 control.
+
