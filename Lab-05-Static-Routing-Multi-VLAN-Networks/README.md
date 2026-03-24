@@ -68,7 +68,7 @@ Build physical connections for both Networks.<br>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/zhxylSW.jpeg" height="60%" width="60%" alt="Serial Module Installation"/>
+<img src="https://i.imgur.com/lAaMi3B.jpeg" height="60%" width="60%" alt="Serial Module Installation"/>
 <p align="center">
 Installation of Serial Module on Router
 <br/>
