@@ -68,7 +68,7 @@ Build physical connections for both Networks.<br>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/I5G7BGr.jpeg" height="60%" width="60%" alt="Cabling Connections"/>
+<img src="https://i.imgur.com/I5G7BGr.jpeg" height="60%" width="60%" alt="Serial Module Installation"/>
 <p align="center">
 Installation of Serial Module on Router
 <br/>
@@ -99,7 +99,7 @@ Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
 <ul>
   <li>Fa0/1–Fa0/2 →  VLAN 10 PCs</li>
   <li>Fa0/9–Fa0/10 →  VLAN 20 PCs</li>
-  <li>Fa0/17–Fa0/8 →  VLAN 30 PCs</li>
+  <li>Fa0/17–Fa0/24 →  VLAN 30 PCs</li>
 </ul>
 
 <p align="center">
@@ -134,9 +134,9 @@ Configure the uplink from the switch:<code>LSW1</code> to the router as an 802.1
 <br />
 <br />
 
-<h3>Step 6: Configure Router Physical Interface</h3>
+<h3>Step 6: Configure Router Interface</h3>
 
-On <code>LAB-R1</code>, configure Ethernet sub-interfaces and the serrial interface<br />
+On <code>LAB-R1</code>, configure Ethernet sub-interfaces and the serial interface<br />
 
 <ul>
   <li>Assign IP addresses and subnet masks to the router’s GigabitEthernet sub‑interfaces for each VLAN according to the plan</li>
@@ -208,7 +208,7 @@ Repeat Steps 4-7 for Network 2.<br />
     </td>
     <td align="center">
       <img src="https://i.imgur.com/eohLhgx.jpeg" height="250" width="300" alt="Router IP Config"/>
-      <br><strong>Router IP Coonfig</strong>
+      <br><strong>Router IP Config</strong>
     </td>
     <td align="center">
       <img src="https://i.imgur.com/McfqleO.jpeg" height="250" width="300" alt="Complete Config"/>
@@ -217,8 +217,6 @@ Repeat Steps 4-7 for Network 2.<br />
   </tr>
 </table>
 <p align="center">
-PCs configured with VLAN-specific IPs and gateways, ready for connectivity testing.<br />
-
 
 <h3>Step 9: Configure Default Routes (Gateway of Last Resort)</h3>
 
@@ -228,7 +226,8 @@ Set a gateway of last resort on both routers so unknown traffic uses the serial 
 <ul>
   <li>In global configuration:
     <ul>
-      <li>Its own gateway: <code>192.168.10.1</code></li>
+      <li>LAB-R1: <code>ip route 0.0.0.0 0.0.0.0 10.10.10.2</code></li>
+      <li>LAB-R2: <code>ip route 0.0.0.0 0.0.0.0 10.10.10.1</code></li>
     </ul>
   </li>
 </ul>
@@ -243,7 +242,7 @@ Set a gateway of last resort on both routers so unknown traffic uses the serial 
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/51iKgGd.jpeg" height="80%" width="80%" alt="Defaulrt Routes"/>
+<img src="https://i.imgur.com/51iKgGd.jpeg" height="80%" width="80%" alt="Default Routes"/>
 <br />
 <br />
 
