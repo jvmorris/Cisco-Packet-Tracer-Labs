@@ -24,99 +24,72 @@ Create the topology shown in the diagram:  <br/>
 <strong>Devices Used:</strong><br/>
 <ul>
   <li>Router: 2 x 2811</li>
-  <li>Switch: 2 x 3560-24PS</li>
+  <li>Switch: 2 x 2960-24TT</li>
   <li>End Devices: 2 x PC</li>
 </ul>
 
 Arrange the devices so the routers are at the top, the switches are below each router, and the PCs are at the bottom.<br/>
 
 <p align="center">
-<img src="https://i.imgur.com/gvTmnXc.jpeg" height="80%" width="80%" alt="Workspace Setup"/>
+<img src="https://i.imgur.com/3N2ZxY0.jpeg" height="50%" width="50%" alt="Workspace Setup"/>
 <br />
 <br />
-
-<h3>Step 2: Router Interface and VLAN Addressing Plan</h3>
-
-Review router interface addressing tables for both LAB-R1 and LAB-R2 across all VLANs and serial links. <br/>
-
-| Router / LAB-R1 / Interface | IPv4 Address / Subnet | VLAN |
-|---|---|---|
-| Serial 0/0/0 | 10.10.10.1 / 30 | n/a |
-| Gi 0/1 | 172.168.1.1 / 24 | n/a |
-| Gi0/1.1 | 192.168.100.1 / 24 | vlan 1 (default) |
-| Gi0/1.10 | 192.168.10.1 / 28 | vlan10 (zone10) |
-| Gi0/1.20 | 192.168.20.1 / 28 | vlan20 (zone20) |
-| Gi0/1.30 | 192.168.30.1 / 28 | vlan30 (zone30) |
-
-| Router / LAB-R2 / Interface | IPv4 Address / Subnet | VLAN |
-|---|---|---|
-| Serial 0/0/0 | 10.10.10.2 / 30 | n/a |
-| Gi 0/1 | 172.168.2.1 / 24 | n/a |
-| Gi0/1.1 | 192.168.200.1 / 24 | vlan 1 (default) |
-| Gi0/1.110 | 192.168.110.1 / 28 | vlan110 (zone110) |
-| Gi0/1.120 | 192.168.120.1 / 28 | vlan120 (zone120) |
-| Gi0/1.130 | 192.168.130.1 / 28 | vlan130 (zone130) |
- 
-<h3>Step 3: Cabling All Devices</h3>
+  
+<h3>Step 2: Cabling All Devices</h3>
 
 Build physical connections for both Networks.<br>
 
 <ul>
-  <li>Use copper straight-through cables for all  <strong>PC → Switch</strong> connections.</li>
-  <li>Connect the switch to the router’s Ethernet interface <code>Gi0/1 → Gi0/1</code> on each side.</li>
-  <li>Install serial WICs on both routers if needed, then connect LAB‑R1’s serial interface (Serial0/0/0) to LAB‑R2’s serial interface (Serial0/0/0) using a <strong>Serial DCE</strong> cable.</li>
+  <li>Use copper straight-through cables for each <strong>PC → Switch</strong> connection.</li>
+  <li>Connect the switch to the router’s Ethernet interface on each side.</li>
+  <li>Install serial WICs on both routers if needed, then connect R1’s serial interface (Serial0/0/0) to R2’s serial interface (Serial0/0/1) using a <strong>Serial DCE</strong> cable.</li>
   <li>Wait for all <strong>PC → Switch</strong> links to turn green to confirm physical connectivity.</li>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/tQiHwNZ.jpeg" height="60%" width="60%" alt="Serial Module Installation"/>
-<p align="center">
-Installation of Serial Module on Router
-<br/>
-
-<p align="center">
-<img src="https://i.imgur.com/djd2mVw.jpeg" height="60%" width="60%" alt="Cabling Connections"/>
-<p align="center">
-All Devices Successfully Connected
+<img src="https://i.imgur.com/4SzQul2.jpeg" height="60%" width="60%" alt="Cabling Connections"/>
 <br/>
 <br/>
 
-<h3>Step 4: Configure VLANs and Access Ports on Switch:<code>LSW1</code></h3>
+<h3>Step 3: Router Interface Addressing Plan </h3>
 
-Open the CLI on the switch and map the access ports to the correct VLANs.<br/>
+Review router interface addressing tables for both R1 and R2. <br/>
 
-<strong>VLAN Configuration</strong><br/>
+| Router: R1 / Interface | IPv6 Address / Subnet |
+|---|---|
+| FA 0/0 | 2001:C16C:0000:0002:0000:0000:0000:0000/64 |
+| Serial 0/0/0 | 2001:C16C:0000:0001:0000:0000:0000:0000/64 |
+
+| Router: R2 / Interface | IPv6 Address / Subnet |
+|---|---|
+| FA 0/0 | 2001:C16C:0000:0003:0000:0000:0000:0000/64 |
+| Serial 0/0/1 | 2001:C16C:0000:0001:0000:0000:0000:0000/64 |
+
+
+<h3>Step 4: Enabling IPv6 Routing</h3>
+
 <ul>
-  <li>Create and name the VLANs:
-     <ul>
-        <li>VLAN 10 - <code>Zone 10</code> </li>
-        <li>VLAN 20 - <code>Zone 20</code></li>
-        <li>VLAN 30 - <code>Zone 30</code></li>
-    </ul>
-  </li>
+  <li>Enter global configuration mode on both routers.</li>
+  <li>Enable IPv6 unicast routing on R1 and R2 using the command <code>ipv6 unicast-routing</code>.</li>
 </ul>
 
-<strong>Access Port Assignments</strong>:<br/>
+
+<h3>Step 5: Configure the WAN Interfaces</h3>
+
+ Assign IPv6 addresses to the serial interfaces and enable the WAN link.<br/>
+
+<strong>Configuration</strong><br/>
 <ul>
-  <li>Fa0/1–Fa0/2 →  VLAN 10 PCs</li>
-  <li>Fa0/9–Fa0/10 →  VLAN 20 PCs</li>
-  <li>Fa0/17–Fa0/24 →  VLAN 30 PCs</li>
+  <li>Enter the interface for each router and assign the IPv6 Addresses for the WAN link.</li>
+  <li>Use <code>no shutdown</code> to activate the interface.</li>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/R6Sj5IT.jpeg" height="80%" width="80%" alt="Configure VLANs on Switch"/>
+<img src="https://i.imgur.com/R6Sj5IT.jpeg" height="80%" width="80%" alt="Configure WAN Interfaces"/>
 <br />
 <br />
 
-Verify VLAN membership with <code>show vlan brief</code>.
-<br />
-
-<p align="center">
-<img src="https://i.imgur.com/Xr03Xlh.jpeg" height="60%" width="60%" alt="VLAN Brief"/>
-<br />
-<br />
-
-<h3>Step 5: Configure Trunk Port and Default VLAN on <code>LSW1</code></h3>
+<h3>Step 6: Verfiy the WAN Interfaces</h3>
 
 Configure the uplink from the switch:<code>LSW1</code> to the router as an 802.1Q trunk.<br />
 
