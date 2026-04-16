@@ -86,7 +86,7 @@ Review router interface addressing tables for both R1 and R2. <br/>
 </ul>
 
 
-<h3>Step 6: Verfiy the WAN Interfaces</h3>
+<h3>Step 6: Verify the WAN Interfaces</h3>
 
 Check that both serial interfaces are active, addressed correctly, and reporting the expected status.<br />
 
@@ -100,15 +100,15 @@ Check that both serial interfaces are active, addressed correctly, and reporting
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://i.imgur.com/ye0FUkp.jpeg" height="250" width="300" alt="ipv6 int"/>
+      <img src="https://i.imgur.com/gsxBBxM.jpeg" height="250" width="300" alt="ipv6 int"/>
       <br><strong>sh ipv6 interface</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/HzvVFXQ.jpeg" height="250" width="300" alt="running-config"/>
+      <img src="https://i.imgur.com/RqESsYW.jpeg" height="250" width="300" alt="running-config"/>
       <br><strong>sh running-config</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/xRpm8W4.jpeg" height="250" width="300" alt="ipv6 brief "/>
+      <img src="https://i.imgur.com/eqzYUtj.jpeg" height="250" width="300" alt="ipv6 brief "/>
       <br><strong>sh ipv6 interface brief</strong>
     </td>
   </tr>
@@ -127,7 +127,7 @@ Confirm that IPv6 routes are present and test communication between the two rout
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/CE72uaU.jpeg" height="80%" width="80%" alt="IPv6 Routing"/>
+<img src="https://i.imgur.com/JiYunA2.jpeg" height="60%" width="60%" alt="IPv6 Routing"/>
 <br />
 <br />
 
@@ -143,7 +143,7 @@ Assign IPv6 hostnames to the router addresses and test name-based connectivity.<
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/CE72uaU.jpeg" height="80%" width="80%" alt="IPv6 Hostnames"/>
+<img src="https://i.imgur.com/P93UJNX.jpeg" height="60%" width="60%" alt="IPv6 Hostnames"/>
 <br />
 <br />
 
@@ -162,11 +162,11 @@ Configure the FastEthernet interfaces on both routers using the EUI-64 option.<b
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://i.imgur.com/XyDkNEl.jpeg" height="250" width="300" alt="R1-LAN"/>
+      <img src="https://i.imgur.com/rdzOlx4.jpeg" height="250" width="300" alt="R1-LAN"/>
       <br><strong>R1-LAN</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/eohLhgx.jpeg" height="250" width="300" alt="R2-LAN"/>
+      <img src="https://i.imgur.com/vwRlR0W.jpeg" height="250" width="300" alt="R2-LAN"/>
       <br><strong>R2-LAN</strong>
     </td>
   </tr>
@@ -185,7 +185,7 @@ Use interface and routing commands to confirm the LAN interfaces are active and 
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/51iKgGd.jpeg" height="80%" width="80%" alt="Verify LAN Connectivity"/>
+<img src="https://i.imgur.com/VNeTdSr.jpeg" height="80%" width="80%" alt="Verify LAN Connectivity"/>
 <br />
 <br />
 
