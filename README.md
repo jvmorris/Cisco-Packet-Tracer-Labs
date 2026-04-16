@@ -52,7 +52,7 @@ VLAN segmentation, and security implementation.
 
 <h3>Lab 06: IPv6 Router Configuration and Address Management</h3>
 
-<b>Objective: Configure static routes between two multi‑VLAN networks in Cisco Packet Tracer by connecting routers over a serial link, assigning IPs to router interfaces and VLANs, enabling trunk ports, and using gateways of last resort to provide end‑to‑end connectivity between workstations.</b>
+<b>Objective: </b>Configure static routes between two multi‑VLAN networks in Cisco Packet Tracer by connecting routers over a serial link, assigning IPs to router interfaces and VLANs, enabling trunk ports, and using gateways of last resort to provide end‑to‑end connectivity between workstations.
 <br />
 
 <h3>Lab 07: </h3>
