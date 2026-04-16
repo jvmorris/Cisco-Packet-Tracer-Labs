@@ -58,12 +58,12 @@ Review router interface addressing tables for both R1 and R2. <br/>
 | Router: R1 / Interface | IPv6 Address / Subnet |
 |---|---|
 | FA 0/0 | 2001:C16C:0000:0002:0000:0000:0000:0000/64 |
-| Serial 0/0/0 | 2001:C16C:0000:0001:0000:0000:0000:0000/64 |
+| Serial 0/0/0 | 2001:C16C:0000:0001:0000:0000:0000:0001/64 |
 
 | Router: R2 / Interface | IPv6 Address / Subnet |
 |---|---|
 | FA 0/0 | 2001:C16C:0000:0003:0000:0000:0000:0000/64 |
-| Serial 0/0/1 | 2001:C16C:0000:0001:0000:0000:0000:0000/64 |
+| Serial 0/0/1 | 2001:C16C:0000:0001:0000:0000:0000:0002/64 |
 
 
 <h3>Step 4: Enabling IPv6 Routing</h3>
@@ -77,146 +77,116 @@ Review router interface addressing tables for both R1 and R2. <br/>
 <h3>Step 5: Configure the WAN Interfaces</h3>
 
  Assign IPv6 addresses to the serial interfaces and enable the WAN link.<br/>
-
-<strong>Configuration</strong><br/>
 <ul>
-  <li>Enter the interface for each router and assign the IPv6 Addresses for the WAN link.</li>
+  <li>On R1, configure Serial0/0/0 with the IPv6 WAN address.</li>
+  <li>If R1 is the DCE side, set the clock rate.</li>
   <li>Use <code>no shutdown</code> to activate the interface.</li>
+  <li>On R2, configure Serial0/0/1 with the matching IPv6 WAN address.</li>
+  <li>Use no shutdown to bring the interface up.</li>
 </ul>
 
-<p align="center">
-<img src="https://i.imgur.com/R6Sj5IT.jpeg" height="80%" width="80%" alt="Configure WAN Interfaces"/>
-<br />
-<br />
 
 <h3>Step 6: Verfiy the WAN Interfaces</h3>
 
-Configure the uplink from the switch:<code>LSW1</code> to the router as an 802.1Q trunk.<br />
+Check that both serial interfaces are active, addressed correctly, and reporting the expected status.<br />
 
 <ul>
-  <li>Interface Gi0/1 on the switch:</li>
-    <ul>
-      <li>Set encapsulation to <code>dot1q</code></li>
-      <li>Set mode to <code>trunk</code></li>
-      <li>Allow VLANs 10, 20, and 30 on the trunk</li>
-    </ul>
-    </li>
-</ul>
-
-<p align="center">
-<img src="https://i.imgur.com/uzWx291.jpeg" height="80%" width="80%" alt="Switch Trunk"/>
-<br />
-<br />
-
-<h3>Step 6: Configure Router Interface</h3>
-
-On <code>LAB-R1</code>, configure Ethernet sub-interfaces and the serial interface<br />
-
-<ul>
-  <li>Assign IP addresses and subnet masks to the router’s GigabitEthernet sub‑interfaces for each VLAN according to the plan</li>
-  <li>Configure the serial interface <code>Serial0/0/0</code> with the /30 link network between <code>LAB-R1</code> and <code>LAB-R2</code>
-    <ul>
-      <li>Bring it up with the command: <code>no shutdown</code></li>
-    </ul>
-  </li>
-</ul>
-
-Verify with <code>show ip int brief</code> that the router is configured properly.
-<p align="center">
-<img src="https://i.imgur.com/CE72uaU.jpeg" height="80%" width="80%" alt="Router Config"/>
-<br />
-<br />
-
-
-
-<h3>Step 7: Configure PCs in <code>NETWORK1</code></h3>
-
-<ul>
-  <li>Click each PC → Desktop → IP Configuration.</li>
-  <li>Set static IPs based on their VLAN assignment and the Plan in <strong>Step 2</strong>.
-    <ul>
-      <li><strong>VLAN 10 PCs (fa0/1-8)</strong>: IPs in 192.168.10.0/28 range | Gateway: 192.168.10.1
-</li>
-      <li><strong>VLAN 20 PCs (fa0/9-16)</strong>: IPs in 192.168.20.0/28 range | Gateway: 192.168.20.1
-</li>
-      <li><strong>VLAN 30 PCs (fa0/17-24)</strong>: IPs in 192.168.30.0/28 range | Gateway: 192.168.30.1</li>
-    </ul>
-    </li>
+  <li>Use <code>show ipv6 interface</code> to verify the global and link-local addresses.</li>
+  <li>Use <code>show running-config</code> to confirm the IPv6 address was added correctly to the serial interface.</li>
+  <li>Use <code>show ipv6 interface brief</code> to confirm the interfaces are up/up.</li>
+  <li>Make sure the serial link is operational before moving on.</li>
 </ul>
 
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://i.imgur.com/ye0FUkp.jpeg" height="250" width="300" alt="VLAN 10"/>
-      <br><strong>VLAN 10</strong>
+      <img src="https://i.imgur.com/ye0FUkp.jpeg" height="250" width="300" alt="ipv6 int"/>
+      <br><strong>sh ipv6 interface</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/HzvVFXQ.jpeg" height="250" width="300" alt="VLAN 20"/>
-      <br><strong>VLAN 20</strong>
+      <img src="https://i.imgur.com/HzvVFXQ.jpeg" height="250" width="300" alt="running-config"/>
+      <br><strong>sh running-config</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/xRpm8W4.jpeg" height="250" width="300" alt="VLAN 30"/>
-      <br><strong>VLAN 30</strong>
+      <img src="https://i.imgur.com/xRpm8W4.jpeg" height="250" width="300" alt="ipv6 brief "/>
+      <br><strong>sh ipv6 interface brief</strong>
     </td>
   </tr>
 </table>
-<p align="center">
-PCs configured with VLAN-specific IPs and gateways, ready for connectivity testing.<br />
+<br />
+<br />
 
-<h3>Step 8: Repeat Switch and Router Configuration for <code>NETWORK2</code></h3>
+<h3>Step 7: Verify IPv6 Routing and Test Connectivity</h3>
 
-Repeat Steps 4-7 for Network 2.<br />
+Confirm that IPv6 routes are present and test communication between the two routers.<br />
 
 <ul>
-  <li>Cable PCs to the <code>NETWORK2</code> switch and connect the switch to the Ethernet interface for <code>LAB-R2</code>.</li>
-  <li>Create the same VLANs and assign access ports on the Network 2 switch.</li>
-  <li>On <code>LAB‑R2</code>, configure GigabitEthernet sub‑interfaces and IPs for each VLAN, and verify the serial interface to <code>LAB‑R1</code> is up.</li>
-  <li>Configure PC IP addresses and default gateways for Network 2 clients.</li>
+  <li>Use <code>show ipv6 route</code> to verify the connected and local routes on the router.</li>
+  <li>Use <code>ping ipv6</code> command to ping R2 to the IPv6 address of R1's serial interface to test IPv6 connectivity between the two routers.</li>
+  <li>Confirm the router configuration matches the addressing plan.</li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/CE72uaU.jpeg" height="80%" width="80%" alt="IPv6 Routing"/>
+<br />
+<br />
+
+<h3>Step 8: Configure IPv6 Hostnames</h3>
+
+Assign IPv6 hostnames to the router addresses and test name-based connectivity.<br />
+
+<ul>
+  <li>Use the <code>ip host</code> command to map the WAN hostname to R1’s serial IPv6 address.</li>
+  <li>Use the <code>ip host</code> command to map the WAN hostname to R2’s serial IPv6 address.</li>
+  <li>Test the hostname by using the ping command with the assigned name.</li>
+  <li>Confirm the hostname resolves to the correct IPv6 address.</li>
+</ul>
+
+<p align="center">
+<img src="https://i.imgur.com/CE72uaU.jpeg" height="80%" width="80%" alt="IPv6 Hostnames"/>
+<br />
+<br />
+
+<h3>Step 9: Configure the LAN Interfaces</h3>
+
+Configure the FastEthernet interfaces on both routers using the EUI-64 option.<br />
+
+<ul>
+  <li>On R1, enter <code>int fa0/0</code>.</li>
+  <li>Configure the IPv6 LAN prefix using <code>ipv6 address 2001:C16C:0:2::/64 eui-64</code>.</li>
+  <li>Use <code>no shutdown</code> to enable the interface.</li>
+  <li>Repeat the process on R2 using <code>ipv6 address 2001:C16C:0:3::/64 eui-64</code>.</li>
+  <li>Verify that both LAN interfaces come up successfully.</li>
 </ul>
 
 <table align="center">
   <tr>
     <td align="center">
-      <img src="https://i.imgur.com/XyDkNEl.jpeg" height="250" width="300" alt="VLAN Config"/>
-      <br><strong>VLAN Config</strong>
+      <img src="https://i.imgur.com/XyDkNEl.jpeg" height="250" width="300" alt="R1-LAN"/>
+      <br><strong>R1-LAN</strong>
     </td>
     <td align="center">
-      <img src="https://i.imgur.com/eohLhgx.jpeg" height="250" width="300" alt="Router IP Config"/>
-      <br><strong>Router IP Config</strong>
-    </td>
-    <td align="center">
-      <img src="https://i.imgur.com/McfqleO.jpeg" height="250" width="300" alt="Complete Config"/>
-      <br><strong>Complete Config</strong>
+      <img src="https://i.imgur.com/eohLhgx.jpeg" height="250" width="300" alt="R2-LAN"/>
+      <br><strong>R2-LAN</strong>
     </td>
   </tr>
 </table>
 <p align="center">
 
-<h3>Step 9: Configure Default Routes (Gateway of Last Resort)</h3>
+<h3>Step 10: Verify LAN Connectivity</h3>
 
-Set a gateway of last resort on both routers so unknown traffic uses the serial link.<br/>
+Use interface brief commands to confirm the LAN interfaces are active.<br/>
 
-<strong>On Lab-R1:</strong><br/>
 <ul>
-  <li>In global configuration:
-    <ul>
-      <li>LAB-R1: <code>ip route 0.0.0.0 0.0.0.0 10.10.10.2</code></li>
-      <li>LAB-R2: <code>ip route 0.0.0.0 0.0.0.0 10.10.10.1</code></li>
-    </ul>
-  </li>
-</ul>
-
-<strong>On Lab-R2:</strong><br/>
-<ul>
-  <li>In global configuration:
-    <ul>
-      <li>Its own gateway: <code>192.168.10.1</code></li>
-    </ul>
-  </li>
+  <li>Use show ipv6 interface brief to confirm Fa0/0 is up/up on both routers.</li>
+  <li>Check that each router has a global unicast IPv6 address on Fa0/0.</li>
+  <li>Verify that the link-local and global addresses are displayed correctly.</li>
+  <li>Confirm that the LAN interfaces show as operational.</li>
+  <li></li>
 </ul>
 
 <p align="center">
-<img src="https://i.imgur.com/51iKgGd.jpeg" height="80%" width="80%" alt="Default Routes"/>
+<img src="https://i.imgur.com/51iKgGd.jpeg" height="80%" width="80%" alt="Verify LAN Connectivity"/>
 <br />
 <br />
 
