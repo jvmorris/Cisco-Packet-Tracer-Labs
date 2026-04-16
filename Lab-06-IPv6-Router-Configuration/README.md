@@ -1,4 +1,4 @@
-<h1>Lab #6: IPv6 Router Configuration and Address Management</h1>
+<h1>Lab #6: IPv6 Router Configuration and Address Management in Cisco Packet Tracer</h1>
 
 
 
