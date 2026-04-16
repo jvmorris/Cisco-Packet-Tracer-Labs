@@ -173,16 +173,15 @@ Configure the FastEthernet interfaces on both routers using the EUI-64 option.<b
 </table>
 <p align="center">
 
-<h3>Step 10: Verify LAN Connectivity</h3>
+<h3>Step 10:Verify LAN Connectivity and Final Routes</h3>
 
-Use interface brief commands to confirm the LAN interfaces are active.<br/>
+Use interface and routing commands to confirm the LAN interfaces are active and the full IPv6 topology is working.<br/>
 
 <ul>
-  <li>Use show ipv6 interface brief to confirm Fa0/0 is up/up on both routers.</li>
+  <li>Use <code>show ipv6 interface brief</code> to confirm the LAN interfaces are up/up.</li>
   <li>Check that each router has a global unicast IPv6 address on Fa0/0.</li>
-  <li>Verify that the link-local and global addresses are displayed correctly.</li>
-  <li>Confirm that the LAN interfaces show as operational.</li>
-  <li></li>
+  <li>Use <code>show ipv6 route</code> to confirm the LAN networks appear as connected routes.</li>
+  <li>Verify that all directly attached IPv6 networks are present in the routing table.</li>
 </ul>
 
 <p align="center">
@@ -190,58 +189,11 @@ Use interface brief commands to confirm the LAN interfaces are active.<br/>
 <br />
 <br />
 
-<h3>Step 10: Connectivity Testing (Inter-VLAN Routing)</h3>
-
-First, verify local connectivity on both sides.<br/>
-
-<ul>
-  <li>From each VLAN in <strong>Network 1</strong>:
-    <ul>
-      <li>Ping another PC in the same VLAN.</li>
-      <li>Ping the default gateway.</li>
-    </ul>
-  </li>
-  <li>Repeat the same tests for Network 2</li>
-</ul>
-
-<table align="center">
-  <tr>
-    <td align="center">
-      <img src="https://i.imgur.com/m4i185g.jpeg" height="250" width="300" alt="Network 1 Ping"/>
-      <br><strong>Network 1</strong>
-    </td>
-    <td align="center">
-      <img src="https://i.imgur.com/6Wz7wrq.jpeg" height="250" width="300" alt="Network 2 Ping"/>
-      <br><strong>Network 2</strong>
-    </td>
-  </tr>
-</table>
-
-<h3>Step 11: Test End-to-End Connectivity Between Networks</h3>
-
-Finally, confirm static routing across the serial link.<br/>
-
-<ul>
-  <li>From <code>LAB‑R1</code>, ping <strong>LAB‑R2’s</strong> serial IP and vice versa to verify router‑to‑router reachability.</li>
-  <li>Then test PC-to-PC pings across networks.</li>
-  <li>Successful replies confirm static routing and gateways of last resort are working end-to-end.</li>
-</ul>
-
-<p align="center">
-<img src="https://i.imgur.com/D3z0MsO.jpeg" height="60%" width="60%" alt="Router-Router Ping"/>
-<p align="center">
-Router-to-Router Ping Across Networks
-<br/>
-
-<p align="center">
-<img src="https://i.imgur.com/VajHn2P.jpeg" height="60%" width="60%" alt="PC-PC Ping"/>
-<p align="center">
-PC-to-PC Ping Across Networks
-<br/>
-<br/>
 
 
 <h3>Conclusion and Key Takeaways</h3>
 
-This lab combined VLANs, trunk ports, router sub‑interfaces, serial links, and static routing to connect two separate multi‑VLAN networks. By configuring IP addressing, VLANs, gateways of last resort, and static routes on each router, I enabled reliable end‑to‑end communication between PCs on different networks while maintaining clear Layer 2 segmentation and Layer 3 control.
+This lab provided hands-on experience configuring IPv6 on Cisco routers, including enabling IPv6 routing, assigning WAN and LAN addresses, and verifying interface status. It also reinforced the use of routing tables, interface checks, hostname mappings, and ping tests to confirm end-to-end connectivity across the network.
+
+
 
